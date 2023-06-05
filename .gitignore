@@ -42,3 +42,10 @@
 obj/
 debug/
 bin/
+
+# running artifacts
+*log
+*.ppm
+
+# IDE/editor related
+*.swp
