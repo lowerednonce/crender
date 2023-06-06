@@ -4,6 +4,7 @@ typedef struct {
 } vect3;
 
 double dot(vect3 first, vect3 second);
+double dot_pow2(vect3 vect);
 vect3 normalize(vect3 vect);
 
 vect3 vect_add(vect3 first, vect3 second);

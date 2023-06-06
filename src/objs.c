@@ -6,10 +6,12 @@
 
 hit render_sphere(ray render_ray, sphere sphere, light show_light) {
     hit result;
+    vect3 oc = vect_sub(render_ray.origin, sphere.pos);
+
     double a = dot(render_ray.direction, render_ray.direction);
-    double b = 2.0f * dot(render_ray.origin, render_ray.direction);
-    double c = dot(render_ray.origin, render_ray.origin) - sphere.r * sphere.r; 
-    double d = (b*b) - (4.0f * a*c);
+    double b = 2.0f * dot(render_ray.direction, oc);
+    double c = dot_pow2(oc) - sphere.r * sphere.r; 
+    double d = (b*b) - (4*a*c);
 
     if (d >= 0.0f) {
         result.contact = true;
@@ -23,6 +25,7 @@ hit render_sphere(ray render_ray, sphere sphere, light show_light) {
         } else {
             result.color = (vect3)vect_scalar_mult(sphere.col, l);
         }
+        /* result.color = vect_scalar_mult(n, 255); */
     } else {
         result.contact = false;
     }

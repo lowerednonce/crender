@@ -5,6 +5,10 @@ double dot(vect3 first, vect3 second) {
     return first.x * second.x + first.y * second.y + first.z * second.z;
 }
 
+double dot_pow2(vect3 vect) {
+    return dot(vect, vect);
+}
+
 vect3 normalize(vect3 vect) {
     double len = sqrt(pow(vect.x, 2) + pow(vect.y, 2) + pow(vect.z, 2));
     return (vect3) {
