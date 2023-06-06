@@ -1,6 +1,6 @@
 # tool macros
 CXX := gcc
-CXXFLAGS := -lm
+CXXFLAGS := -lm -O2
 DBGFLAGS := -g
 CCOBJFLAGS := $(CXXFLAGS) -c
 

@@ -14,8 +14,9 @@ typedef struct {
 } ray;
 
 typedef struct {
-    vect3 pos;
-    vect3 size;
+    vect3 center;
+    vect3 normal;
+    vect3 base_color;
 } plane;
 
 typedef struct {
@@ -24,13 +25,16 @@ typedef struct {
 
 typedef struct {
     vect3 color;
-    double depth;
+    float depth;
     bool contact;
 } hit;
 
 typedef struct {
     sphere *spheres;
     size_t spheres_size;
+    plane *planes;
+    size_t planes_size;
 } Scene;
 
-hit render_sphere(ray ray, sphere sphere, light shown_light);
+hit render_sphere(ray ray, sphere sph, light shown_light);
+hit render_plane(ray ray, plane pln, light shown_light);
